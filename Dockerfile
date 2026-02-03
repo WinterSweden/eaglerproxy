@@ -17,4 +17,5 @@ COPY . .
 EXPOSE 8080
 
 # Start the compiled proxy
-CMD ["node", "build/index.js"]
+CMD ["node", "dist/index.js"]
+
