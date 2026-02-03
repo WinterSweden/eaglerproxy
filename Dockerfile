@@ -13,9 +13,6 @@ RUN npm install
 # Copy all other files
 COPY . .
 
-# Install TypeScript and compile
-RUN npm install -g typescript && tsc
-
 # Expose the WebSocket port
 EXPOSE 8080
 
