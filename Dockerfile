@@ -1,4 +1,4 @@
-FROM node:20-bullseye
+FROM node:20-alpine
 
 WORKDIR /usr/src/app
 
@@ -7,6 +7,12 @@ RUN npm install
 
 COPY . .
 
+# Build TypeScript → dist/
+RUN npm run build
+
+# Render provides PORT automatically
+ENV PORT=8080
 EXPOSE 8080
 
-CMD ["node", "src/index.js"]
+# Start the compiled JS
+CMD ["node", "dist/index.js"]
